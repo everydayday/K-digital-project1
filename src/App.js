@@ -1,12 +1,12 @@
   import './App.css';
   import { FcHome } from "react-icons/fc";
   import { IoHome } from "react-icons/io5";
-  //import MainHeader from './01/MainHeader';
-  //import Hello from './01/Hello';
-  //import MyClock from './01_1/MyClock';
   import HelloCss from './02/HelloCss';
   import logo from './logo.svg';
   import icons from './icons';
+  import MyDiv from './03_1/MyDiv';
+  import MyList from './04/MyList';
+  import MyListMain from './04/MyListMain';
   
   function App() {
     return (
@@ -21,15 +21,15 @@
                             h-20 p-10
                             text-xl font-bold text-cyan-800
                             bg-green-400
-                            items-center
-          '>
+                            items-center'>
             <div>리액트 실습</div>
             <div><IoHome /></div>
           </header>
-          <main className='grow'>
-            <HelloCss />
+          <main className='grow flex flex-col justify-center items-center'>
+            <MyListMain />
+            
              {/* <img src={logo} className="App-logo" alt="logo" />  */}
-            <icons />
+            
           </main>
           
         <footer className='flex justify-center items-center  inset-x-0 bottom-0 h-16  text-white bg-slate-800'>
