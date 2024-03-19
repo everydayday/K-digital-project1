@@ -7,6 +7,7 @@
   import MyDiv from './03_1/MyDiv';
   import MyList from './04/MyList';
   import MyListMain from './04/MyListMain';
+  import BoxOfficeTb from './05/BoxOfficeTb';
   
   function App() {
     return (
@@ -26,7 +27,7 @@
             <div><IoHome /></div>
           </header>
           <main className='grow flex flex-col justify-center items-center'>
-            <MyListMain />
+          <BoxOfficeTb/>
             
              {/* <img src={logo} className="App-logo" alt="logo" />  */}
             

@@ -9,8 +9,8 @@ export default function MyListMain() {
                 imgUrl={Item.imgUrl} 
                 content = {Item.content}
                 key = {Item.title}/>
-    ); 
-
+    );        
+              
     return (
     <div className="w-10/12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {myItems}
