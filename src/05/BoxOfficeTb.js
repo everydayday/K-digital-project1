@@ -1,4 +1,4 @@
-import Mytable from "./Mytable";
+
 import listData from "./BoxOffice.json" // 불러들이는 파일의 이름은 내가 원하는대로 해도 상관 x
 import { useState } from 'react';
 import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
@@ -20,7 +20,8 @@ export default function BoxOfficeTb() {
       // 삼항 연산자 3개 가능하다
       let str = parseInt(mv.rankInten) === 0 ? "그대로입니다.😑" 
                 : parseInt(mv.rankInten) > 0 ? "증가했습니다.😁" : "감소했습니다. 😥"
-      setStInfo(`${mv.movieNm} 관객수는 ${str} ${mv.rankInten}`)
+      // 할당연산자로 state 변수 변경 불가능 => 업데이트함수로 변경 가능
+      setStInfo(`${mv.movieNm} 순위는 전날대비 ${str} ${mv.rankInten}`)
     }
     // . : object 접근법
     const trs = listData.boxOfficeResult.dailyBoxOfficeList.map(item =>

@@ -7,8 +7,10 @@
   import MyDiv from './03_1/MyDiv';
   import MyList from './04/MyList';
   import MyListMain from './04/MyListMain';
-  import BoxOfficeTb from './05/BoxOfficeTb';
-  
+  import BoxOfficeTb from './05_1/BoxOfficeTb';
+import BoxOfficeTbody from './05_1/BoxOfficeTb';
+import Lotto from './06/Lotto'
+
   function App() {
     return (
       // JSX 문법 사용      
@@ -27,8 +29,8 @@
             <div><IoHome /></div>
           </header>
           <main className='grow flex flex-col justify-center items-center'>
-          <BoxOfficeTb/>
-            
+          {/* <BoxOfficeTb/> */}
+            <Lotto />
              {/* <img src={logo} className="App-logo" alt="logo" />  */}
             
           </main>
