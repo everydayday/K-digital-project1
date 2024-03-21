@@ -1,4 +1,4 @@
-export default function Tailbutton({ caption, color, handleLottoClick}) {
+export default function Tailbutton({ caption, color, handleLottoClick, handleClick}) {
   
   const colorObj = {
     'blue' : 'bg-blue-800',
@@ -20,7 +20,7 @@ export default function Tailbutton({ caption, color, handleLottoClick}) {
   return (
     // bg-%{blue}-900 : 이게 안 됨 => object 선언해서 해야 해
     <button className={bColor}
-            onClick = {()=>{handleLottoClick()}}>
+            onClick = {()=>{handleClick()}}>
     {caption}
     </button>
   );

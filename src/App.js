@@ -9,7 +9,10 @@
   import MyListMain from './04/MyListMain';
   import BoxOfficeTb from './05_1/BoxOfficeTb';
 import BoxOfficeTbody from './05_1/BoxOfficeTb';
+import FoodCard from './07/FoodCard';
+import FoodMain from './07/FoodMain';
 import Lotto from './06/Lotto'
+import MyClock from './08/MyClock';
 
   function App() {
     return (
@@ -30,8 +33,9 @@ import Lotto from './06/Lotto'
           </header>
           <main className='grow flex flex-col justify-center items-center'>
           {/* <BoxOfficeTb/> */}
-            <Lotto />
+            {/* <Lotto /> */}
              {/* <img src={logo} className="App-logo" alt="logo" />  */}
+            <MyClock />
             
           </main>
           

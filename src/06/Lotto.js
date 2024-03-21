@@ -27,10 +27,10 @@ export default function Lotto() {
 
       const tm = nums.map((item,idx) =>{
         if(idx === 5 ) 
-              return <span>
+              return <div className="flex flex-row bg-red-400 ">
                       <Tailball n={item} key = {`ball${item}`}/>
-                      <div className="flex flex-row font-bold text-2xl mx-2">+</div>
-                    </span>
+                      <div className="font-bold text-2xl mx-1">+</div>
+                    </div>
                   
         else 
           return <Tailball  n={item} key={`ball${item}`} />
@@ -42,7 +42,7 @@ export default function Lotto() {
       // setStInfo2(num2)      
       // setStInfo3(num3)      
       // setStInfo4(num4)      
-      // setStInfo5(num5)       */}
+      // setStInfo5(num5)       */}   
       
 
 }
