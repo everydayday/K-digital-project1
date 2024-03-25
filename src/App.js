@@ -13,7 +13,10 @@ import FoodCard from './07/FoodCard';
 import FoodMain from './07/FoodMain';
 import Lotto from './06/Lotto'
 import MyClock from './08/MyClock';
-
+import TrafficMain from './09/TrafficMain';
+import RefVal from './10/RefVal';
+import RefInput from './10/RefInput';
+import BoxOffice from './10/BoxOffice';
   function App() {
     return (
       // JSX 문법 사용      
@@ -35,7 +38,7 @@ import MyClock from './08/MyClock';
           {/* <BoxOfficeTb/> */}
             {/* <Lotto /> */}
              {/* <img src={logo} className="App-logo" alt="logo" />  */}
-            <MyClock />
+            <BoxOffice />
             
           </main>
           
