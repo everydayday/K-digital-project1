@@ -35,7 +35,7 @@ export default function GalleryCard({imgUrl, title, ptitle, ktag}) {
 
     // })
   return (
-    <div className="max-w-sm bg-sky-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm shadow-gray-700 bg-sky-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
         <img className="rounded-t-lg" src= {imgUrl} alt={title} />
     </a>

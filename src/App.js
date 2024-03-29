@@ -19,6 +19,7 @@ import RefInput from './10/RefInput';
 import BoxOffice from './10/BoxOffice';
 import GalleryCard from './11/GalleryCard';
 import GalleryMain from './11/GalleryMain';
+import EventMain from './12/EventMain';
   function App() {
     return (
       // JSX 문법 사용      
@@ -40,7 +41,7 @@ import GalleryMain from './11/GalleryMain';
           {/* <BoxOfficeTb/> */}
             {/* <Lotto /> */}
              {/* <img src={logo} className="App-logo" alt="logo" />  */}
-            <GalleryMain />
+            <EventMain />
             
           </main>
           

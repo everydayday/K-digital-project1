@@ -81,6 +81,7 @@ export default function GalleryMain() {
     <div className='w-11/12 flex flex-col
                     mt-5
                     h-full justify-start items-center'>
+        
         <div className='w-full bg-slate-200 grid grid-cols-1 
                         md:grid-cols-3 items-center  gap-4 p-1 rounded-lg'>
           <div>
