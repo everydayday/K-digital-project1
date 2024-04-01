@@ -2,13 +2,13 @@ import "./MyClockTime.css"
 import { useState, useEffect } from "react";
 
 function MyClockTime(){
-    const [currentTime, setCurrentTime] = useState();
+    const [currentTime, setCurrentTime] = useState(new Date);
     const[tm , setTm] = useState(0)
    
     // 컴포넌트 생성시 최초 1번 실행
     useEffect(() =>{    
     setInterval(() =>{
-        setCurrentTime(new Date())
+        setCurrentTime(new Date)
     }, 1000)
     
    },[]) 
@@ -29,10 +29,10 @@ function MyClockTime(){
 
 
     return(
-        <>
-        <h1>현재 시각 : {currentTime.toLocaleTimeString()}</h1>
+        <div className="flex flex-col items-center text-center">
+        <h1 className="font-bold ">현재 시각 : {<br/>}{currentTime.toLocaleTimeString()}</h1>
         
-        </>
+        </div>
     );
 
 

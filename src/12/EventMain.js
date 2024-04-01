@@ -81,7 +81,7 @@ export default function EventMain() {
 
 
     <form className="w-full flex  bg-blue-200  items-center pt-3 pb-3 mb-3">
-    <label htmlFor="countries" className="block mb-2 mr-2 rounded-md bg-cyan-100 ml-3 font-bold  text-lg  text-gray-900 dark:text-white">부산 축제 정보선택</label>
+    <label htmlFor="countries" className="block mb-2 mr-2 rounded-md bg-cyan-100 ml-3 font-bold  text-lg  text-gray-900 dark:text-white">부산 축제 정보선택1234</label>
     <select onChange={handleSelGu} ref = {selRef} id="countries" className="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-2/3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <option selected>구선택</option>
     {opTags}

@@ -15,7 +15,7 @@ export default function Tailbutton({ caption, color, handleClick}) {
     'lime' : 'hover:bg-lime-600'
   }
 
-  const bColor = `w-full  p-2 h-11/12 rounded-md  ${hoverObj[color]} ${colorObj[color]} text-white`
+  const bColor = `w-full m-1 p-2 h-11/12 rounded-md  ${hoverObj[color]} ${colorObj[color]} text-white`
   let num = Math.floor(Math.random()*45 + 1)
   return (
     // bg-%{blue}-900 : 이게 안 됨 => object 선언해서 해야 해
