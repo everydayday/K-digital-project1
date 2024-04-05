@@ -20,7 +20,7 @@ export default function Tailbutton({ caption, color, handleClick}) {
   return (
     // bg-%{blue}-900 : 이게 안 됨 => object 선언해서 해야 해
     <button className={bColor} 
-            onClick = {()=>{handleClick()}}>
+            onClick = {handleClick}>
     {caption}
     </button>
   );

@@ -24,6 +24,12 @@ import GalleryMain from "./11/GalleryMain";
 // import EventMain from "./12/EventMain";
 // import RouteMain from "./13/RouteMain";
 import Frcst from "./14/Frcst";
+import UltraSrtFcst from "./14/UltraSrtFcst";
+import VilageFcst from "./14/VilageFcst";
+import FrcsList from "./14/FrcsList";
+import Recoil1 from "./15/Recoil1";
+import RecoilMain from "./15/RecoilMain";
+
 function App() {
   return (
     <BrowserRouter>
@@ -47,6 +53,7 @@ function App() {
 
           <div className="flex justify-end items-center">
 
+            <div className="mx-2 hover:text-blue-300"><Link to='/recoil1'>Recoil</Link></div>
             <div className="mx-2 hover:text-blue-300"><Link to='/frcst'>예보</Link></div>
             <div className="mx-2 hover:text-blue-300"><Link to='/food'>음식점</Link></div>
             <div className="mx-2 hover:text-blue-300"><Link to='/gallerymain'>관광지</Link></div>
@@ -71,6 +78,10 @@ function App() {
             <Route path="/gallerymain" element={<GalleryMain/> } />
             <Route path="/food" element={<FoodMain/>} />
             <Route path="/frcst" element={<Frcst/>} />
+            <Route path="/ultra/:dt/:area/:x/:y" element={<UltraSrtFcst/>} />
+            <Route path="/village/:dt/:area/:x/:y" element={<VilageFcst/>} />
+            <Route path="/flist" element = {<FrcsList/>}/>
+            <Route path="/recoil1" element = {<RecoilMain/>}/>
           </Routes>
         </main>
 
