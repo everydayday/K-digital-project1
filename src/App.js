@@ -4,7 +4,7 @@ import { IoHome } from "react-icons/io5";
 import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
 import {Button, Tabs} from 'antd';
 
-import KoreaMap from "./Map/KoreaMap";
+import KoreaMap from "./Map/WorldMap";
 
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 
@@ -23,6 +23,20 @@ import FrcsList from "./14/FrcsList";
 import Recoil1 from "./15/Recoil1";
 import RecoilMain from "./15/RecoilMain";
 
+
+import { KoreaBubbleMap, KoreaMapData } from "@tenqube/react-korea-bubble-map";
+
+const data: KoreaMapData = {
+  sido: [{ code: "1100000000", name: "서울특별시", count: 400 }],
+  sigungu: [
+    { code: "1168000000", name: "강남구", count: 300 },
+    { code: "1171000000", name: "송파구", count: 100 },
+  ],
+  emd: [
+    { code: "1168010100", name: "역삼동", count: 300 },
+    { code: "1171010100", name: "잠실동", count: 100 },
+  ],
+};
 
 
 
@@ -106,7 +120,7 @@ function App() {
         
         <main className="grow flex flex-col justify-end items-center w-4/5">
           <Routes>
-            <Route path="/" element={<MyClock />} />
+            {/* <Route path="/" element={<MyClock />} /> */}
             <Route path="/lotto" element={<Lotto />} />
             <Route path="/boxOffice" element={<BoxOffice />}/>
             {/* <Route path="/gallerycard" element={<GalleryCard/> } /> */}
@@ -123,8 +137,10 @@ function App() {
 
 
         <div>
+        {/* https://www.npmjs.com/package/@tenqube/react-korea-bubble-map */}
+          <KoreaBubbleMap data={data} width={500} height={500} />
           <h1>한반도 지도</h1>
-          {/* <KoreaMap /> */}
+          
         </div>
         <footer className="flex justify-center items-center  inset-x-0 bottom-0 h-16  text-white bg-slate-800">
           @ 2024 Kim Dae Hee. All rights reserved

@@ -9,7 +9,6 @@ export default function BoxOffice() {
   const [boxList,setBoxList] = useState();
   const [trs, setTrs] = useState();
   // 영화목록 RESTfull 서비스로 가져오기
-
   const [stInfo, setStInfo] = useState("영화를 선택하세요.");
   const info = (mv) =>{
     console.log(mv)
@@ -87,7 +86,8 @@ export default function BoxOffice() {
     </tr>
   </thead>
   <tbody>
-    {trs}
+    {/* 테이블 부분 state 변수 */}
+    {trs} 
   </tbody>
   <tfoot><tr><td colSpan="6" className="bg-amber-200 text-center"><span>{stInfo}</span></td></tr></tfoot>
 </table>
