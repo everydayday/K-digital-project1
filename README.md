@@ -1,9 +1,8 @@
-# K-digital 리액트
-+ 설치 : Create React App
-    + https://github.com/facebook/create-react-app
+# 수정사항
+6/4 
+- antd 이용한 tabs 추가
+- map 라이브러리 이용한 세계지도 추가
 
-### `npm start`
-+ http://localhost:3000 으로 실행
 
 
 
