@@ -1,51 +1,71 @@
 import "./App.css";
 import { FcHome } from "react-icons/fc";
 import { IoHome } from "react-icons/io5";
-import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
-import {Button, Tabs} from 'antd';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Button, Tabs } from "antd";
 
-import KoreaMap from "./Map/WorldMap";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import KoreaMap from "./kmap/KoreaMap";
 
-import { ComposableMap, Geographies, Geography } from "react-simple-maps"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
+/**
+// ================================ //
+- image 전환 
 
-import FoodMain from "./07/FoodMain";
-import Lotto from "./06/Lotto";
-import MyClock from "./08/MyClock";
-
-import BoxOffice from "./10/BoxOffice";
-
-import GalleryMain from "./11/GalleryMain";
-import Frcst from "./14/Frcst";
-import UltraSrtFcst from "./14/UltraSrtFcst";
-import VilageFcst from "./14/VilageFcst";
-import FrcsList from "./14/FrcsList";
-import Recoil1 from "./15/Recoil1";
-import RecoilMain from "./15/RecoilMain";
+*/
 
 
-import { KoreaBubbleMap, KoreaMapData } from "@tenqube/react-korea-bubble-map";
 
-const data: KoreaMapData = {
-  sido: [{ code: "1100000000", name: "서울특별시", count: 400 }],
-  sigungu: [
-    { code: "1168000000", name: "강남구", count: 300 },
-    { code: "1171000000", name: "송파구", count: 100 },
-  ],
-  emd: [
-    { code: "1168010100", name: "역삼동", count: 300 },
-    { code: "1171010100", name: "잠실동", count: 100 },
-  ],
-};
+// image 경로 
+const images = [
+  '/imgs/purple1.jpg',
+  '/imgs/purple2.jpg',
+  '/imgs/purple3.jpg',
+  '/imgs/purple4.jpg'
+]
+var imglength = images.length
+var imgIndex = 0
+
+
+// 재귀함수로 image n초마다 보여주기
+// window.onload -> 함수 이름 나타내지 않아
+// -> 재귀함수 어려움
+function showImage(){
+  var nextImage = document.getElementById("changeImage")
+  nextImage.src = images[imgIndex]
+  imgIndex = imgIndex + 1
+  console.log("show Image", imgIndex)
+  console.log("imglength:", imglength)
+  if(imgIndex === imglength){
+    imgIndex = 0
+  } 
+    
+  
+  setTimeout(showImage, 2000) // setTimeout안에 실행할 함수의 호출이 들어가 있음
+}
+
+//window.onload = showImage(0)
+
+
 
 
 
 function App() {
+  const [index, setIndex] = useState(0);
+  const nextImage = () =>{
+    setIndex(index+1)
+    console.log(index)
+  }
+
+
   return (
     <BrowserRouter>
-      {/* // JSX 문법 사용 */}
-
       
+
+      {/* 전체 적용 div */}
       <div
         className="flex flex-col w-full
                           max-w-screen-xl
@@ -56,92 +76,150 @@ function App() {
       >
         <header
           className="flex justify-between 
-                              h-20 p-10
-                              text-xl font-bold text-cyan-800
-                              bg-green-400
-                              items-center"
+                              h-20  p-2 m-2
+                              text-xl                             
+                              items-center
+                              shadow-md rounded-md"
         >
-          <div>리액트 실습</div>
-
-          <div className="flex justify-end items-center">
-
-            <div className="mx-2 hover:text-blue-300"><Link to='/recoil1'>Recoil</Link></div>
-            <div className="mx-2 hover:text-blue-300"><Link to='/frcst'>예보</Link></div>
-            <div className="mx-2 hover:text-blue-300"><Link to='/food'>음식점</Link></div>
-            <div className="mx-2 hover:text-blue-300"><Link to='/gallerymain'>관광지</Link></div>
-            <div className="mx-2 hover:text-blue-300"><Link to = '/boxoffice'>박스오피스</Link></div>
-            <div className="mx-2 hover:text-blue-300"><Link to ='/Lotto'>로또</Link></div> 
-            <div><Link to = '/'><IoHome className="hover:fill-blue-400"/></Link></div>
-            
+          <div className="flex justify-start items-center    ">
+            <a className="m-3" href="#">
+              About
+            </a>
+            <a className="m-3" href="#">
+              Contact
+            </a>
+            <a className="m-3" href="#">
+              FAQ
+            </a>
           </div>
         </header>
+        <hr></hr>
 
-        <div className="bg-purple-400">
-        <div>준비된 당신이 도착할 지역을</div>
-        <div>한 눈에 보세요</div>
+        <div className=" h-20 flex mb-3  p-2 text-5xl font-bold  justify-between ">
+          <FontAwesomeIcon icon="fa-thin fa-binoculars" />
+          <div className="flex">
+            <div className="text-blue-600">ClearS</div>
+            <div>ee</div>
+          </div>
+          <div className="text-2xl flex gap-5">
+          <button className="bg-slate-300 p-2 rounded-md">마이페이지</button>
+          <button className="bg-slate-300 p-2 rounded-md">로그아웃</button>
+          </div>
         </div>
-        <Button type="primary">PRESS ME</Button>
+        <hr className="mb-3 shadow-blue-500"></hr>
+
+        {/* div가 load 되었을 때 */}
+        <div className="flex justify-center" > 
+          <img className="rounded-lg w-4/5"    src={images[0]} alt="no image" id = "changeImage"/>
+        </div>
+
+  
+
+        
+
         
         
-
-
-        <div className="bg-red-300">직종코드입력창</div>
-        <div className="flex flex-row h-full">
-        <div className="flex justify-center items-stretch h-full w-1/5">
-        <div className="bg-blue-200 w-48 flex-grow">
-          세로로 긴 영역
-        </div>
-
-        {/* https://ant.design/components/tabs */}
-
-        <Tabs defaultActiveKey="1"
-        tabPosition={'left'}
-        style={{
-          height: 220,
-        }}
-        items={new Array(5).fill(null).map((_, i) => {
-          const id = String(i);
-          return {
-            label: `Tab-${id}`,
-            key: id,
-            disabled: i === 28,
-            //children: `Content of tab ${id}`,
-          };
-        })}              
-              
-        />
-        </div>
-
-        <div>
-          <select>
-            <option value="A">A</option>
+        <div className="bg-blue-300 shadow-md mt-1"><p>입력하세요</p></div>
+        <div className="flex justify-center content-center h-40 ">
+          <select className="m-2">
+            <option value="">1차 분류</option>
+            <option value="1">건설·채굴</option>
+          </select>
+          <select className="m-2" type="hidden">
+            <option >2차 분류</option>
+            <option>dd</option>
+          </select>
+          <select className="m-2">
+            <option>3차 분류</option>
+            <option>dddd</option>
           </select>
         </div>
+
         
-        <main className="grow flex flex-col justify-end items-center w-4/5">
-          <Routes>
-            {/* <Route path="/" element={<MyClock />} /> */}
-            <Route path="/lotto" element={<Lotto />} />
-            <Route path="/boxOffice" element={<BoxOffice />}/>
-            {/* <Route path="/gallerycard" element={<GalleryCard/> } /> */}
-            <Route path="/gallerymain" element={<GalleryMain/> } />
-            <Route path="/food" element={<FoodMain/>} />
-            <Route path="/frcst" element={<Frcst/>} />
-            <Route path="/ultra/:dt/:area/:x/:y" element={<UltraSrtFcst/>} />
-            <Route path="/village/:dt/:area/:x/:y" element={<VilageFcst/>} />
-            <Route path="/flist" element = {<FrcsList/>}/>
-            <Route path="/recoil1" element = {<RecoilMain/>}/>
-          </Routes>
-        </main>
-        </div>
+        <div className="flex flex-row h-full">
+          <div className="flex justify-center items-stretch h-full w-1/5">
+            <div className="bg-blue-200 w-48 flex-grow  justify-center"></div>
+
+            <div className="flex flex-col bg-blue-100">
+              {/* https://ant.design/components/tabs */}
+              <Link to ="/koreamap">
+              <Tabs 
+                //defaultActiveKey="1"
+                tabPosition={"left"}
+                style={{
+                  height: 100,
+                }}
+                items={new Array(1).fill(null).map((_, i) => {
+                  const id = String(i+1);
+                  return {
+                    label: `Tab-${id}`,
+                    key: id,
+                    //disabled: i === 2,
+                    //children: `Content of tab ${id}`,
+                  };
+                })}
+              />
+              </Link>
+              
+              <Link to ="/koreamap">
+              <Tabs
+                defaultActiveKey="1"
+                tabPosition={"left"}
+                style={{
+                  height: 100,
+                }}
+                items={new Array(1).fill(null).map((_, i) => {
+                  const id = String(i+2);
+                  return {
+                    label: `Tab-${id}`,
+                    key: id,
+                    //disabled: i === 2,
+                    //children: `Content of tab ${id}`,
+                  };
+                })}              
+              />
+              </Link>
+                
+              <Link to ="/koreamap">
+                <Tabs
+                defaultActiveKey="1"
+                tabPosition={"left"}
+                style={{
+                  height: 100,
+                }}
+                items={new Array(1).fill(null).map((_, i) => {
+                  const id = String(i+3);
+                  return {
+                    label: `Tab-${id}`,
+                    key: id,
+                    //disabled: i === 2,
+                    //children: `Content of tab ${id}`,
+                  };
+                })}              
+              />
+              </Link>
+            </div>
+              
 
 
-        <div>
-        {/* https://www.npmjs.com/package/@tenqube/react-korea-bubble-map */}
-          <KoreaBubbleMap data={data} width={500} height={500} />
-          <h1>한반도 지도</h1>
+
+          </div>
+
           
+          <div className="flex  ">
+            <Routes>
+              <Route path="/koreamap" element={<KoreaMap/>} />
+          
+          
+          </Routes>
         </div>
+
+
+
+
+        </div>
+
+        
         <footer className="flex justify-center items-center  inset-x-0 bottom-0 h-16  text-white bg-slate-800">
           @ 2024 Kim Dae Hee. All rights reserved
         </footer>

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@svg-maps/south-korea": "^1.0.1",
     "@tenqube/react-korea-bubble-map": "^0.0.3",
     "@testing-library/jest-dom": "^5.17.0",
@@ -10,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.18.0",
     "d3-geo": "^3.1.1",
+    "framer-motion": "^11.2.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
