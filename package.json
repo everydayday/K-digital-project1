@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@antv/g2": "^5.1.21",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@svg-maps/south-korea": "^1.0.1",
@@ -20,6 +21,7 @@
     "react-scripts": "5.0.1",
     "react-simple-maps": "^3.0.0",
     "recoil": "^0.7.7",
+    "swiper": "^11.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
