@@ -5,6 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+import {ReactComponent as Logo} from './images/logo4.svg'
+
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import {
   AppstoreOutlined,
@@ -65,115 +68,29 @@ function MainPage() {
   //   console.log(index)
   // }
 
-  const [comp, setComp] = useState();
-
-  // menu part
-  const items = [
-    {
-      key: "1",
-      icon: <PieChartOutlined />,
-      label: "Option 1",
-    },
-    {
-      key: "2",
-      icon: <DesktopOutlined />,
-      label: "Option 2",
-    },
-    {
-      key: "3",
-      icon: <ContainerOutlined />,
-      label: "Option 3",
-    },
-    {
-      key: "sub1",
-      label: "Navigation One",
-      icon: <MailOutlined />,
-      children: [
-        {
-          key: "5",
-          label: "Option 5",
-        },
-        {
-          key: "6",
-          label: "Option 6",
-        },
-        {
-          key: "7",
-          label: "Option 7",
-        },
-        {
-          key: "8",
-          label: "Option 8",
-        },
-      ],
-    },
-    {
-      key: "sub2",
-      label: "Navigation Two",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          key: "9",
-          label: "Option 9",
-        },
-        {
-          key: "10",
-          label: "Option 10",
-        },
-        {
-          key: "sub3",
-          label: "Submenu",
-          children: [
-            {
-              key: "11",
-              label: "Option 11",
-            },
-            {
-              key: "12",
-              label: "Option 12",
-            },
-          ],
-        },
-      ],
-    },
-  ];
-
-  // tab
-  const [activeKey, setActiveKey] = useState("1");
-
-  // const handleTabChange = (key) => {
-  //   setActiveKey(key);
-  //   console.log('Active tab key:', key);
-  // };
-
-  // tab items
-  const tabitems = new Array(3).fill(null).map((_, i) => {
-    const id = String(i + 1);
-    return {
-      label: `Tab-${id}`,
-      key: id,
-    };
-  });
-
-  // tab click event
-  const handleClick = () => {
-    // let component = <></>
-    // //console.log("key : ", key)
-    // if(key === 1){
-    //   component = <KoreaMap/>
-
-    // }
-    // // else
-
-    const component = <KoreaMap />;
-
-    setComp(component);
-  };
+  
 
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
+
+  const btn1 = () => {
+    document.getElementById("kmap").style.display = "block";
+    document.getElementById("chart").style.display = "none";
+    
+  }
+
+  const btn2 = () => {
+    document.getElementById("kmap").style.display = "none";
+    document.getElementById("chart").style.display = "block";
+    
+  }
+
+  const btn3 = () => {
+    document.getElementById("kmap").style.display = "none";
+    console.log("btn3");
+  }
 
   return (
     <div>
@@ -183,7 +100,7 @@ function MainPage() {
                             max-w-screen-xl
                             h-screen
                             mx-auto
-                            overscroll-y-auto
+                            overscroll-y-auto bg-slate-50
                             "
       >
         <header
@@ -195,8 +112,11 @@ function MainPage() {
         >
           
             <div className="flex text-5xl font-bold">
-              <AppstoreOutlined />
-              <div className="text-blue-600">ClearS</div>
+              {/* <AppstoreOutlined /> */}
+              
+              <Logo />
+              
+              <div className="text-blue-600 ml-1">ClearS</div>
               <div>ee</div>
             </div>
             <div className="flex flex-row">
@@ -211,7 +131,7 @@ function MainPage() {
                   FAQ
                 </a>
               </div>
-              <div className="text-2xl flex gap-5 font-bold">
+              <div className="text-xl flex gap-5 font-bold justify-center items-center ml-1">
                 <button className="bg-slate-300 p-2 rounded-md">
                   마이페이지
                 </button>
@@ -229,6 +149,7 @@ function MainPage() {
             alt="no image"
             id="changeImage"
           /> */}
+          {/* swiper react */}
           <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -250,15 +171,12 @@ function MainPage() {
       </Swiper>
         </div>
 
-        <div className="bg-blue-300 shadow-md mt-3 w-full h-10">
-          {/* <p>입력하세요</p> */}
-        </div>
         <div className="flex justify-center content-center h-40 ">
-          <select className="m-2">
+          <select className="m-2 rounded-lg">
             <option value="">1차 분류</option>
             <option value="1">건설·채굴</option>
           </select>
-          <select className="m-2" type="hidden">
+          <select className="m-2 rounded-lg" type="hidden">
             <option>2차 분류</option>
             <option>dd</option>
           </select>
@@ -273,19 +191,17 @@ function MainPage() {
             <div className="bg-blue-200 w-48 flex-grow  justify-center"></div>
             <div className="flex flex-col bg-blue-100">
               {/* https://ant.design/components/menu/ */}
-              <div
-                style={{
-                  width: 256,
-                }} 
-                className="flex flex-col justify-center"
-              >
-                <button className="bg-purple-300 rounded-md
-                                      text-2xl m-3 w-[200px]"
-                        onClick={useNavigate('/kmap')}>버튼1</button>
-                <button className="bg-purple-300 rounded-md
-                                      text-2xl m-3 w-[200px]  ">버튼1</button>
-                <button className="bg-purple-300 rounded-md
-                                      text-2xl m-3 w-[200px]  ">버튼1</button>
+              <div style={{width: 256}} className="flex flex-col justify-center" id="btns">
+                <button className="bg-slate-300 rounded-md
+                                      text-xl m-3 w-[200px] inline-flex 
+                                      hover:bg-slate-400   items-center justify-center"
+                        onClick={btn1} >지도로비교 </button>
+                <button className="bg-slate-300 rounded-md
+                                      hover:bg-slate-400 text-xl m-3 w-[200px] inline-flex items-center justify-center"
+                        onClick={btn2} >표로비교</button>
+                <button className="bg-slate-300 rounded-md
+                                      hover:bg-slate-400 text-xl m-3 w-[200px] inline-flex items-center justify-center"
+                        onClick={btn3} >상세보기</button>
                 
                 {/* <Button
                   type="primary"
@@ -359,11 +275,15 @@ function MainPage() {
             </div>
           </div>
 
-          <div className="flex ">
+          {/* 감췄다가 나타나게하기 */}
+          <div className="hidden flex justify-center items-center w-full" id="kmap">
             {/* <Routes>
             <Route path="/kmap" element={<KoreaMap/>} />  
             </Routes> */}
-             
+             <KoreaMap/>
+          </div>
+          <div className="hidden flex justify-center items-center p-3 w-full h-full" id="chart">
+              <G2chart />
           </div>
         </div>
 
