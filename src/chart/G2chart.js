@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Chart } from '@antv/g2';
-
+import G2chart_sido from '../kmap/G2chart_sido'
+/*
 // https://www.npmjs.com/package/@antv/g2
 const data = [
   { genre: 'Sports', sold: 275 },
@@ -9,13 +10,15 @@ const data = [
   { genre: 'Shooter', sold: 350 },
   { genre: 'Other', sold: 150 },
 ];
-
+*/
+// genre 와 sold 말곤 label 값이 안 바뀌네
+const data = G2chart_sido
 const G2chart = () => {
   useEffect(() => {
     const chart = new Chart({
       container: 'container',
       width: 600,
-      height: 300,
+      height: 500,
     });
 
     chart
@@ -33,7 +36,7 @@ const G2chart = () => {
   }, []);
 
   return (
-    <div id="container" />
+    <div id="container" className="flex items-center justify-center mt-6 " />
   );
 }
 
