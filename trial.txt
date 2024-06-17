@@ -1,0 +1,28 @@
+시도 했던 코드들
+
+## 재귀함수로 이미지 넘겨주기
+
+const imglength = images.length;
+let imgIndex = 0;
+
+// 재귀함수로 image n초마다 보여주기
+// window.onload -> 함수 이름 나타내지 않아
+// -> 재귀함수 어려움
+function showImage() {
+  let nextImage = document.getElementById("changeImage");
+  //nextImage.src = images[imgIndex]
+  //console.log("images[imgIndex] : ", images[imgIndex])
+  //console.log("nextImage : " , nextImage)
+  imgIndex = imgIndex + 1;
+  //console.log("imgIndex:", imgIndex)
+
+  if (imgIndex === imglength) {
+    imgIndex = 0;
+  }
+
+  // 한번에 두 번 실행되는 오류 발생 (console 찍어보면 알 수 있음)
+  setTimeout(showImage, 2000); // setTimeout안에 실행할 함수의 호출이 들어가 있음
+}
+
+window.onload = showImage(0);
+// window 가 실행되었을 때 함수 실행

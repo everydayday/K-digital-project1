@@ -1,0 +1,62 @@
+[
+    {
+        "genre": "인천",
+        "sold": 13
+    },
+    {
+        "genre": "강원",
+        "sold": 17
+    },
+    {
+        "genre": "경북",
+        "sold": 13
+    },
+    {
+        "genre": "경기",
+        "sold": 91
+    },
+    {
+        "genre": "충남",
+        "sold": 15
+    },
+    {
+        "genre": "전북",
+        "sold": 19
+    },
+    {
+        "genre": "서울",
+        "sold": 53
+    },
+    {
+        "genre": "경남",
+        "sold": 11
+    },
+    {
+        "genre": "충북",
+        "sold": 10
+    },
+    {
+        "genre": "대구",
+        "sold": 13
+    },
+    {
+        "genre": "부산",
+        "sold": 20
+    },
+    {
+        "genre": "대전",
+        "sold": 9
+    },
+    {
+        "genre": "전남",
+        "sold": 13
+    },
+    {
+        "genre": "울산",
+        "sold": 6
+    },
+    {
+        "genre": "광주",
+        "sold": 3
+    }
+]

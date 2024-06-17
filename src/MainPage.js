@@ -64,26 +64,23 @@ function MainPage() {
     document.getElementById("kmap").style.display = "none";
     document.getElementById("chart").style.display = "none";
     document.getElementById("table").style.display = "block";
-  }
+  } 
 
-  useEffect(()=>{
-    fetch('http://localhost:5000/api/data')
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        })
+  // useEffect(()=>{
+  //   fetch('http://localhost:5000/api/data')
+  //       .then(response => {
+  //         console.log(response)
+  //         return response.text()})
+  //       .then(data => console.log(data))
+  //       .catch(error => {
+  //         console.error('Error fetching data:', error);
+  //       })
 
 
-  },[]);
+  // },[]);
 
 
   return (
-
-    
-
-
-
     <div>
       {/* 전체 적용 div */}
       <div
@@ -151,7 +148,7 @@ function MainPage() {
           <figure className="hidden justify-center items-center p-3 w-full h-full" id="chart">
               <G2chart />
           </figure>
-          <figure className="hidden justify-center items-center p-3 pt-0 w-full h-full" id="table">
+          <figure className="hidden justify-center items-center p-3 pt-0 w-full h-[650px]" id="table">
               <Infotable />
           </figure>
         </main>

@@ -1,0 +1,33 @@
+
+
+thead {
+    th {
+      background-color: #FFED86;
+    }
+  }
+
+
+  tbody {
+    font-size: 90%;
+    tr {
+      &:hover {
+        background-color: rgba(48, 138, 140, 0.2) ;
+        /* background-color: rgba(163, 209, 210, 0.2); */
+      }
+    }
+    /* td {
+      position: relative;
+      &:hover {
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -9999px;
+          bottom: -9999px;
+          background-color: rgba(70, 18, 190, 0.2);
+          z-index: -1;
+        }
+      }
+    } */
+  }

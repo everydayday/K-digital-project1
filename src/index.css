@@ -4,9 +4,9 @@
 
 
 @font-face {
-  font-family: "Mukta";
-  font-weight: normal;
-  src: url("C:\Users\user\dev\소스파일\FE\gongmo2\src\fonts\Mukta\Mukta-Light.ttf") format("truetype");
+  font-family: "KCC-Hanbit";
+  font-weight: lighter;
+  src: url("./fonts/KCC-Hanbit.ttf") format("truetype");
 }
 
 
@@ -25,3 +25,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* #btns{
+  font-family: "KCC-Hanbit";
+} */
+
