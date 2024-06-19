@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Head from "./headfolder/Head"
 import Classify from "./classifyFolder/Classify"
@@ -38,8 +38,8 @@ const images = [
 
 
 
-function MainPage() {
-  const [index, setIndex] = useState(0);  
+function MainPage() {  
+  const [menu, setMenu] = useState(0);
 
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => {
@@ -50,6 +50,7 @@ function MainPage() {
     document.getElementById("kmap").style.display = "block";
     document.getElementById("chart").style.display = "none";
     document.getElementById("table").style.display = "none";
+    setMenu(1);
     
   }
 
@@ -57,13 +58,14 @@ function MainPage() {
     document.getElementById("kmap").style.display = "none";
     document.getElementById("chart").style.display = "block";
     document.getElementById("table").style.display = "none";
-    
+    setMenu(2)
   }
 
   const btn3 = () => {
     document.getElementById("kmap").style.display = "none";
     document.getElementById("chart").style.display = "none";
     document.getElementById("table").style.display = "block";
+    setMenu(3);
   } 
 
   // useEffect(()=>{
@@ -117,15 +119,14 @@ function MainPage() {
           {/* <Swiper1 />  component실패*/}
         </article>
 
-        {/* 분류 */}
-        <Classify />
+        
 
         {/* 800 */}
-        <main className="flex flex-row h-[1500px]">
+        <main className="flex flex-row h-[1500px] mt-5">
           {/* <div className="flex justify-center items-stretch h-[650px] w-1/5 bg-green-400"> */}
-            <div className="flex flex-col bg-blue-100 h-[650px]">
+            <div className="flex flex-col  h-[800px]">
               {/* https://ant.design/components/menu/ */}
-              <div style={{width: 256}} className="flex flex-col justify-center font-bold w-full p-2" id="btns">
+              <div style={{width: 256}} className="flex flex-col justify-center font-bold w-full p-2 bg-blue-100 rounded-xl" id="btns">
                 <button className="bg-slate-300 rounded-md
                                       text-lg m-3 w-[200px] inline-flex 
                                       hover:bg-slate-400   items-center justify-center"
@@ -136,6 +137,11 @@ function MainPage() {
                 <button className="bg-slate-300 rounded-md
                                       hover:bg-slate-400 text-lg m-3 w-[200px] inline-flex items-center justify-center"
                         onClick={btn3} >상세보기</button>
+                {/* 분류 1,2,3차 분류*/}
+                <div>
+                 {/* state 변수로 값 나타났다 사라지게 하는 코드 */}
+                { menu === 3 ? <Classify /> : ''}
+                </div>
               </div>
               
             </div>
@@ -148,7 +154,8 @@ function MainPage() {
           <figure className="hidden justify-center items-center p-3 w-full h-full" id="chart">
               <G2chart />
           </figure>
-          <figure className="hidden justify-center items-center p-3 pt-0 w-full h-[650px]" id="table">
+          <figure className="hidden justify-center items-center p-3 pt-0 w-full h-[800px]" id="table">
+              
               <Infotable />
           </figure>
         </main>
