@@ -1,20 +1,73 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import tableData from './table_data.json'
 import "./TableCss.css" 
 
 
 export default function Infotable() {
+    // states 초기화
+    useEffect(()=>{
+      if(tableData){
+        setStates(tableData.map(() => '⬜')) // map은 배열을 반환하므로
+      }
+      
+    },[])
+    
+    // 바뀌는 checkbutton들
+    const [states, setStates] = useState([]);
+
     const [currentPage, setCurrentPage] = useState(1);
     const [pageRange, setPageRange] = useState([1, 5]); // Initial page range from 1 to 5
     const itemsPerPage = 10;
        
-
-    const indexOfLastItem = currentPage * itemsPerPage; // 10 
+    // 현재 페이지의 첫번째, 마지막 데이터의 인덱스
+    const indexOfLastItem = currentPage * itemsPerPage; // 10 : currentPage 바뀔때마다 바뀜
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;    // 0
 
+    
     // 원본 json 데이터 다루기
-    const currentItemsData = tableData.slice(indexOfFirstItem, indexOfLastItem); // (end 미포함)
-    const [currentItems, setCurrentItems] = useState(currentItemsData)
+    const currentItemsData = tableData.slice(indexOfFirstItem, indexOfLastItem); // (end 미포함) .. currentPage 바뀔때마다 바뀜
+    
+    const [currentItems, setCurrentItems] = useState(currentItemsData)          // state 변수가 바뀔 때 마다 컴포넌트 다시 렌더링 됨
+    // currentItemsData 가 초기값으로 설정되었지 currentItemsData를 참조하는 값은 아닌가봐
+    
+    // td 클릭 시 바뀌는 거
+    const changeTd = (index) => {
+      // const maptr = document.getElementById(jobId).rows
+      // var row = document.getElementById(jobId)
+    
+      // var cell = row.getElementsByTagName('td')
+      // console.log(cell)
+      // cell.textContent = cell.textContent === '⬜' ? '✅' : '⬜'      
+        
+        let tms = [...states]
+        tms[index] = tms[index] === '⬜' ? '✅' : '⬜'
+        setStates(tms)
+        // back과 통신 시, index로 접근 가능할 것 같음
+      }
+
+    
+      // 출력 할 Items
+    const trd = currentItemsData.map((item,index) =>{
+        // item에서는 문제없이 데이터 들어옴
+        return(<tr id = {item.jobId} className="md:text-sm sm:text-xs">   
+            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(163, 209, 210, 0.2)'}}>{item.workPlcNm}</td>
+            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}}>{item.oranNm}</td>
+            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}}>{item.recrtTitle}</td>
+            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}}>{item.toDd}</td>
+            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}} onClick={()=> changeTd(index)} >{states[index]}</td>
+    
+        </tr>
+        );
+    })
+
+    //currentItemsData 바뀔때마다 setState => 렌더링 => currentItemsData 계산 하는 부분 재실행
+    // useEffect 안에는 setState 안 들어가는게 좋겠네
+    // currentItemsData 계산 하는 부분은 useEffect 안에 들어가도록
+    /// ============== ///
+    // useEffect(()=>{
+    //   setCurrentItems(currentItemsData)
+    // },[currentItemsData])
+
 
 
     const totalPages = Math.ceil(tableData.length / itemsPerPage)
@@ -68,54 +121,14 @@ export default function Infotable() {
         
         return pageNumbers
     }
-
-
-    //const [checkValue, setCheckValue] = useState('⬜')
-    const [, forceUpdate] = useState(0);
-
-
-    // td 클릭 시 바뀌는 거 나중에 구현하기
-    const changeTd = (jobId) => {
-    // const maptr = document.getElementById(jobId).rows
-    // var row = document.getElementById(jobId)
-  
-    // var cell = row.getElementsByTagName('td')
-    // console.log(cell)
-    // cell.textContent = cell.textContent === '⬜' ? '✅' : '⬜'
-
-    // forceUpdate(n => n + 1);
-
-      // let tm = currentItems.filter( i => i.jobId == jobId);
-      let tms = currentItems
-      let tm = tms.filter( i => i.jobId == jobId);
-      console.log("infotable =", tm[0]['interest'])
-      tm[0]['interest'] = tm[0]['interest'] === '⬜' ? '✅' : '⬜'
-      
-      
-
-      setCurrentItems
-    }
-
-    // 출력 할 Items
-    const trd = currentItems.map(item =>{
-        // item에서는 문제없이 데이터 들어옴
-        return(<tr id = {item.jobId} className="md:text-sm sm:text-xs">   
-            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(163, 209, 210, 0.2)'}}>{item.workPlcNm}</td>
-            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}}>{item.oranNm}</td>
-            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}}>{item.recrtTitle}</td>
-            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}}>{item.toDd}</td>
-            <td style={{padding : '15px' ,  backgroundcolor: 'rgba(255,255,255,0.2)'}} onClick={()=> changeTd(item.jobId)} >⬜</td>
     
-        </tr>
-        );
-    })
-
     
 
 
   return (
-    <div className="ml-1 h-[650px]">
-        <table className="border-collapse h-[550px]" style={{boxShadow: '0 0 20px rgba(0,0,0,0.1)'}}>
+    // 
+    <div className="ml-1 h-[800px]">
+        <table className="border-collapse h-[650px] w-full " style={{boxShadow: '0 0 20px rgba(0,0,0,0.1)'}}>
             <thead>
                 <tr>
                     <th>지역</th><th>모집기관</th><th>공고명</th><th>마감날짜</th><th>관심</th>

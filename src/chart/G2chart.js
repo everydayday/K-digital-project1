@@ -19,8 +19,24 @@ const data = [
 const G2chart = () => {
   const [g2data, setG2data] = useState([]);
   
+  // KoreaMap 참조해서 getData 부분만 useEffect에 넣을려했으나 실패
+  const getData = async () => {
+    try{
+      const response = await fetch('http://localhost:5000/api/g2data') ;
+      const data = await response.json() ;
+      console.log("g2data after response", data);
+      setG2data(data);
+    }
+    catch(Exception ){
+      
+    }
+
+  }
 
   useEffect(() => {
+   
+    //getData();
+    // 되던 코드
     fetch('http://localhost:5000/api/g2data')
           .then(response =>  response.json())
           .then(data => { 
@@ -34,22 +50,8 @@ const G2chart = () => {
           .catch(error => {
             console.log('Error fetching data:', error)
           }) 
+        
 
-    // fetch('http://localhost:5000/api/g2data')
-    //       .then(response => {
-    //               console.log("response:", response);
-    //               return response.json()})
-    //       .then(data => { 
-            
-    //         console.log('fetched g2 data :',data)
-    //         setG2data(data)
-    //         console.log('g2data : ' , g2data)
-
-    //       }) 
-            
-    //       .catch(error => {
-    //         console.log('Error fetching data:', error)
-    //       })
 
   }, []);
 
@@ -79,9 +81,6 @@ const G2chart = () => {
       };
 
       }
-
-      
-
 
     }, [g2data]);
 

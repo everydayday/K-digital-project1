@@ -1,52 +1,9 @@
-import React from 'react'
-import { KoreaBubbleMap, KoreaMapData } from "@tenqube/react-korea-bubble-map";
-import { useState, useEffect } from 'react';
-//import fs from 'fs'
-// import jsonData from './korea_map_data.json'
+import {useState ,useEffect} from "react"
+import { useNavigate } from "react-router-dom";
+import {ReactComponent as Logo} from './images/logo4.svg'
+import LoginPage from "./firstfolder/LoginPage"
+import SignupPage from "./firstfolder/SignupPage"
 import codeJsonData from './sido_code_data.json'
-import { saveAs } from 'file-saver';
-
-
-//const rawData = fs.readFileSync('./kmap/korea_map_data.json', 'utf-8');
-//const jsonData = JSON.parse(rawData)
-
-
-
-
-// 법정동 코드 반환 함수
-// const codeData = fs.readFileSync('./kmap/sido_code_data.json', 'utf-8');
-// const codeJsonData = JSON.parse(codeData);
-
-{/* https://www.npmjs.com/package/@tenqube/react-korea-bub  ble-map */}
-// 임의로 데이터 넣어보기 (test data)
-// 전북이 안 됌
-
-/*
-const input_data1 = {
-  sido: [
-        { code: "1100000000", name: "서울특별시", count: 400 },
-        { code: "5100000000", name: "강원", count: 500 },
-        { code: "5000000000", name: "제주", count: 300 },
-        { code: "4600000000", name: "전남", count: 300 },
-        { code: "4700000000", name: "경북", count: 300 },
-        // { code: "5200000000", name: "전북", count: 300 },
-  ],
-  sigungu:[
-    { code: "1168000000", name: "강남구", count: 300 },
-    { code: "1171000000", name: "송파구", count: 100 },
-    {code : "5111000000", name : "강원 춘천시" , count : 500 },
-    {code : "5011000000", name : "제주 제주시" , count : 300 },
-    
-  ],
-  emd: [
-        { code: "1168010100", name: "역삼동", count: 300 },
-        { code: "1171010100", name: "잠실동", count: 100 },
-      ],
-};
-*/
-
-
-
 
 const generateCodeForName = (name) => {
   const sidoCode = codeJsonData[name];
@@ -54,8 +11,9 @@ const generateCodeForName = (name) => {
   return sidoCodeStr
 }
 
-export default function KoreaMap() {
-  /* data 얻는 원본 함수들
+
+export default function FirstPage() {
+  // storage 저장 함수
   const [jsonData,setJsonData] = useState('');
 
 
@@ -132,7 +90,9 @@ export default function KoreaMap() {
     const json = JSON.stringify(input_data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
     
-    window. .setItem('koreadata', json);
+    console.log("before localstorage setItem")
+    window.sessionStorage.setItem('koreadata', json)
+    window.localStorage.setItem('koreadata', json);
     // FileSaver.js를 사용하여 파일 저장
     // saveAs(blob, 'saved_korea_map_data.json');
 
@@ -141,15 +101,38 @@ export default function KoreaMap() {
 
   },[jsonData])
 
-  */
-  const sessionstorage = window.sessionStorage.getItem('koreadata')
-  const sessionstorage_input_data = JSON.parse(sessionstorage)
-  // 받아온 변수 값 넣기
-  const data : KoreaMapData = sessionstorage_input_data
+
+
+
+
+
+
+
+  // 페이지용 함수
+  const [isLoginPage, setIsLoginPage] = useState(true);
+  const togglePage = () =>{
+    setIsLoginPage(!isLoginPage)
+  }
+
+  
+
 
   return (
-    <div className="flex justify-center">
-      <KoreaBubbleMap data={data} width={500} height={650} />
+    // ../imgs/flower.jpg
+    // div 안에 bg로 읽기 실패 (img 태그로는 읽을 수 있음)
+    <div className="h-screen flex flex-col justify-center  "> 
+      {/* <img src='../imgs/info1.jpg' alt="no image"/> */}
+      <div className="w-full  flex justify-center items-center ">
+        
+          <div className = 'bg-[rgb(240,248,255)] w-[430px] h-[400px] flex justify-center items-center rounded-md   '>
+            <div className=' bg-blue-100  flex flex-col justify-between items-center w-[95%] h-[95%]
+                              text-3xl  border-2 rounded-md p-4 '>
+                
+                {isLoginPage ? <LoginPage togglePage={togglePage}/> : <SignupPage togglePage={togglePage} />}
+            </div>
+          </div>
+                   
+      </div>
     </div>
   )
 }

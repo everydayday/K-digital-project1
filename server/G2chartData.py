@@ -15,16 +15,19 @@ def getData():
 
 
 
+    
     url = 'http://apis.data.go.kr/B552474/SenuriService/getJobList'
-    servicekey = 'nSsjmwW7P8v4/4snOCYe0og5/8LwRd7sZhBLYsnK559jxSdyQ1JpibKEmxMxEkSYvvju+HGCTch4vsNZVQY1Ng=='
-    params ={'serviceKey' : servicekey, 'pageNo' : '1', 'numOfRows' : '10000' }
+    servicekey = 'nSsjmwW7P8v4/4snOCYe0og5/8LwRd7sZhBLYsnK559jxSdyQ1JpibKEmxMxEkSYvvju+HGCTch4vsNZVQY1Ng==' #디코딩 키
+    #servicekey = 'nSsjmwW7P8v4%2F4snOCYe0og5%2F8LwRd7sZhBLYsnK559jxSdyQ1JpibKEmxMxEkSYvvju%2BHGCTch4vsNZVQY1Ng%3D%3D' #인코딩 키 
+    params ={'serviceKey' : servicekey, 'pageNo' : '1', 'numOfRows' : '1000' }
     response = requests.get(url, params=params)
 
-
+    print("response in G2charData after response" , response) # 200번 시 성공
+    #print("response_content in G2charData after response" , response.content)
 
     response_content = response.content
     root = ET.fromstring(response_content)
-
+    
 
 
     sidoResult = {}

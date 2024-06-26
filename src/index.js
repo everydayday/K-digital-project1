@@ -2,10 +2,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'; // stylesheet도 import로 받아들임
-import App from './App'; //.js 는 생략됨 // 우리가 만들 것
+//import App from './App'; //.js 는 생략됨 // 우리가 만들 것
 // import reportWebVitals from './reportWebVitals';
 
-import LoginPage from "./LoginPage"
+import LoginPage from "./FirstPage"
+import SigupPage from "./FirstPage"
 import MainPage from "./MainPage" ;
 import KoreaMap from "./kmap/KoreaMap";
 import MyPage from "./pagefolder/Mypage"
@@ -17,8 +18,12 @@ root.render(  // 갖다끼운다  // 노드를 갖다끼움
     <BrowserRouter>
     {/* <App />  */}
     <div>
+
+
+
       <Routes>
         <Route path="/" element={<LoginPage/>} />  
+        <Route path="/signup" element={<SigupPage/>} /> 
         <Route path="/main" element={<MainPage/>} />  
         <Route path="/kmap" element={<KoreaMap/>} /> 
         <Route path="/mypage" element={<MyPage/>} />
