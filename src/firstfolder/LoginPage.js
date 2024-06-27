@@ -16,7 +16,7 @@ export default function LoginPage({togglePage}) {
       body : JSON.stringify({userLoginId,userPw})
     }
 
-    const response = await fetch("http://localhost:8080/userlogin", options);
+    const response = await fetch("http://10.125.121.225:8080/userlogin", options);
     console.log("response in loginpage", response)
     const data = await response.json()
     console.log(" data in loginpage : " , data)

@@ -21,7 +21,7 @@ export default function FirstPage() {
   const getData =  async () => {
     // 서버 꺼져있을 시 예외처리
     try{
-      const response = await fetch('http://localhost:5000/api/mapdata') ;
+      const response = await fetch('http://10.125.121.225:5000/api/mapdata') ;
       const data = await response.json() ;
       console.log("koreamapdata after response", data);
       setJsonData(data) ;

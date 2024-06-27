@@ -37,7 +37,7 @@ const G2chart = () => {
    
     //getData();
     // 되던 코드
-    fetch('http://localhost:5000/api/g2data')
+    fetch('http://10.125.121.225:5000/api/g2data')
           .then(response =>  response.json())
           .then(data => { 
             

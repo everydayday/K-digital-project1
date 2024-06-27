@@ -17,7 +17,7 @@ export default function SignupPage({togglePage}) {
       body : JSON.stringify({userLoginId,userPw})
     }
     
-    const response = await fetch("http://localhost:8080/signup", options);
+    const response = await fetch("http://10.125.121.225:8080/signup", options);
     console.log("response :", response)
 
     const data = await response.json()
