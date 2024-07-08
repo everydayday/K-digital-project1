@@ -14,3 +14,10 @@
 ![슬라이드6](https://github.com/everydayday/K-digital-project1/assets/96685431/37dae463-f57f-48fc-9f86-da82b1bb33cf)
 ![슬라이드7](https://github.com/everydayday/K-digital-project1/assets/96685431/dbe7304d-d42c-4cd8-ab18-c5fe0dbb337a)
 
+![signup_fail](https://github.com/everydayday/K-digital-project1/assets/96685431/a0fcf6d5-0787-43be-ba85-bd80dab0a2da)
+![signup_success](https://github.com/everydayday/K-digital-project1/assets/96685431/3de603eb-b9b2-4711-b30e-20603237cd50)
+![footer](https://github.com/everydayday/K-digital-project1/assets/96685431/7f709507-98f6-45bd-9f41-77ed43cc36ce)
+![banner_sliding](https://github.com/everydayday/K-digital-project1/assets/96685431/b5ab64b5-0130-4237-9a0d-e6ab0072e740)
+![상세보기](https://github.com/everydayday/K-digital-project1/assets/96685431/6905817a-befd-4a8c-809a-bbb80d267ec3)
+![지도로보기](https://github.com/everydayday/K-digital-project1/assets/96685431/02c89681-007e-4836-81ba-a3cae974fc14)
+![표로보기](https://github.com/everydayday/K-digital-project1/assets/96685431/56b4da25-8da8-4422-9917-757898fa4a02)
