@@ -124,7 +124,7 @@ export default function FirstPage() {
       {/* <img src='../imgs/info1.jpg' alt="no image"/> */}
       <div className="w-full  flex justify-center items-center ">
         
-          <div className = 'bg-[rgb(240,248,255)] w-[430px] h-[400px] flex justify-center items-center rounded-md   '>
+          <div className = 'bg-[rgb(240,248,255)] w-[380px] h-[380px] flex justify-center items-center rounded-md   '>
             <div className=' bg-blue-100  flex flex-col justify-between items-center w-[95%] h-[95%]
                               text-3xl  border-2 rounded-md p-4 '>
                 

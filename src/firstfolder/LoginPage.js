@@ -39,27 +39,29 @@ export default function LoginPage({togglePage}) {
                   <div>ee</div>
                   </div>
                   {/* <input className="rounded-lg w-full font-mono " type="text" value="로그인 :" /> */}
-                  <table>
-                    <tr>
-                    {/* <td className="text-center">
-                          <p>아이디 :</p>
-                        </td> */}
-                        <td><input type="text" id="username" name="userLoginId"
-                                  onChange={(e) => setUserLoginId(e.target.value)}
-                                  placeholder="ID"   className='border-2 w-full rounded-lg' required></input></td>
-                    </tr>
+                  <div className="w-64">
+                    <table>
                       <tr>
-                        {/* <td className="text-center">
-                          <p>비밀번호 :</p>
-                        </td> */}
-                        <td><input type="password" id="password" name="password"
-                                  onChange={(e) => setUserPw(e.target.value)}
-                                  placeholder="PW" className='border-2 w-full rounded-lg ' required></input></td>
+                      {/* <td className="text-center">
+                            <p>아이디 :</p>
+                          </td> */}
+                          <td><input type="text" id="username" name="userLoginId"
+                                    onChange={(e) => setUserLoginId(e.target.value)}
+                                    placeholder="ID"   className='border-2 w-full rounded-lg' required></input></td>
                       </tr>
-                  </table>
-                  <div className="flex flex-col justify-center mt-8">
-                    <button className='bg-slate-300 m-1' type="button" onClick={handleLogin}>로그인</button>
-                    <button className='bg-slate-400 m-1' onClick={togglePage}>회원가입하기</button>
+                        <tr>
+                          {/* <td className="text-center">
+                            <p>비밀번호 :</p>
+                          </td> */}
+                          <td><input type="password" id="password" name="password"
+                                    onChange={(e) => setUserPw(e.target.value)}
+                                    placeholder="PW" className='border-2 w-full rounded-lg ' required></input></td>
+                        </tr>
+                    </table>
+                    <div className="flex flex-col justify-center mt-3">
+                      <button className='bg-slate-300 m-1' type="button" onClick={handleLogin}>로그인</button>
+                      <button className='bg-slate-400 m-1 mt-0' onClick={togglePage}>회원가입하기</button>
+                    </div>
                   </div>
                 
     </div>
