@@ -29,3 +29,6 @@ footer 페이지 다운 <br/>
 표로 비교하기 <br/>
 ![표로보기](https://github.com/everydayday/K-digital-project1/assets/96685431/56b4da25-8da8-4422-9917-757898fa4a02) <br/>
  
+![슬라이드15](https://github.com/everydayday/K-digital-project1/assets/96685431/df2f0d85-cfca-433a-90b0-e3852f21b457)
+![슬라이드16](https://github.com/everydayday/K-digital-project1/assets/96685431/16b9aa1f-3a31-4b00-8e22-c27f0dd1a32a)
+![슬라이드20](https://github.com/everydayday/K-digital-project1/assets/96685431/6ed21a2c-9d86-4332-b646-f82dc23e9b9e)
