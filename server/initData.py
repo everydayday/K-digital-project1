@@ -1,12 +1,14 @@
 import requests
 import xml.etree.ElementTree as ET
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 
 def apidata():
-    url = 'http://apis.data.go.kr/B552474/SenuriService/getJobList'
-    # servicekey = 'nSsjmwW7P8v4/4snOCYe0og5/8LwRd7sZhBLYsnK559jxSdyQ1JpibKEmxMxEkSYvvju+HGCTch4vsNZVQY1Ng==' #디코딩 키
-    servicekey = 'nSsjmwW7P8v4%2F4snOCYe0og5%2F8LwRd7sZhBLYsnK559jxSdyQ1JpibKEmxMxEkSYvvju%2BHGCTch4vsNZVQY1Ng%3D%3D' #인코딩 키 
+    url = os.getenv('FILE_URL')
+    servicekey = os.getenv('ENCODED_SERVICE_KE')
     params ={'serviceKey' : servicekey, 'pageNo' : '1', 'numOfRows' : '1000' }
     response = requests.get(url, params=params)
 

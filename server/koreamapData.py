@@ -3,19 +3,23 @@ import pandas as pd
 import requests
 import xml.etree.ElementTree as ET
 import json
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 def getdata():
-    file_path = r'C:\Users\user\dev\소스파일\FE\gongmo2\src\kmap\datalist.xlsx'
+    file_path = os.getenv('FILE_URL')
+    rfile_path = r"{}".format(file_path)
     df = pd.read_excel(file_path)
     df = df[['법정동코드', '법정동명']]
     data_dict = {item : 0 for item in df['법정동명']}
     #data_dict = dict(zip(df['법정동명'], [0] * len(df)))
 
     
-    url = 'http://apis.data.go.kr/B552474/SenuriService/getJobList'
-    servicekey = 'nSsjmwW7P8v4/4snOCYe0og5/8LwRd7sZhBLYsnK559jxSdyQ1JpibKEmxMxEkSYvvju+HGCTch4vsNZVQY1Ng==' #디코딩 키
-    #servicekey = 'nSsjmwW7P8v4%2F4snOCYe0og5%2F8LwRd7sZhBLYsnK559jxSdyQ1JpibKEmxMxEkSYvvju%2BHGCTch4vsNZVQY1Ng%3D%3D' #인코딩 키 
+    url = os.getenv('APP_URL')
+    servicekey = os.getenv('DECODED_SERVICE_KEY')
+
     params ={'serviceKey' : servicekey, 'pageNo' : '1', 'numOfRows' : '1000' }
     response = requests.get(url, params=params)
 
