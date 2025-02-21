@@ -1,4 +1,6 @@
-<a href = "https://ibe.pusan.ac.kr/bbs/pnuenglish/3102/1240067/artclView.do">[부산대 K-Digital Trainning]</a> AI 활용 빅데이터분석 풀스택웹서비스 SW 개발자 양성과정 6회차 🖥️ 미니프로젝트 
+<a href = "https://ibe.pusan.ac.kr/bbs/pnuenglish/3102/1240067/artclView.do">[부산대 K-Digital Trainning]</a><br> 
+🖥️ AI 활용 빅데이터분석 풀스택웹서비스 SW 개발자 양성과정(6회차) 🖥️<br> 
+미니프로젝트 
 
 
 ## 👓클리어씨(Clear See)
