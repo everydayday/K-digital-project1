@@ -7,10 +7,21 @@
 노인을 위한 다양한 일자리 정보를 제공 및
 시각화 자료를 한 눈에 볼 수 있는 플랫폼입니다.
 
+### <a href="#stack">🔨 기술 스택</a>
 ### <a href="#subject">🖼️ 주제 소개</a>
 ### <a href="#main">📍주요 기능</a>
 ### <a href="#paper">🧾 명세서</a>
 <hr>
+
+<a name = "stack"></a>
+# 🔨 기술 스택
+- **Frontend |** html, css, JavaScript
+- **Css Framework |** Tailwind Css
+- **Library |** React
+- **Database |** MySQL
+- **Framework |** SpringBoot
+- **IDE |** Visual Studio Code
+
 
 <a name = "subject"></a>
 
