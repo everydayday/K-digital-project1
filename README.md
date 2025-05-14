@@ -19,7 +19,7 @@
 - **Css Framework |** Tailwind Css
 - **Library |** React
 - **Database |** MySQL
-- **Framework |** SpringBoot
+- **Framework |** SpringBoot, Flask
 - **IDE |** Visual Studio Code
 
 
